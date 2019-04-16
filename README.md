@@ -1,17 +1,25 @@
-# Django Docker
-Django docker boilerplate with postgres database in Docker containers using Docker compose.
+# Django Docker bilerplate with Postgres
+> Django docker boilerplate with Postgres database in Docker containers using Docker compose.
+
+## Prerequisites
+
+* Docker `docker`
+* Docker compose `docker-compose`
+
+You don't need Python and modules to run this project, however it will be needed for linting e.t.c.
 
 ## Start a new project:
 
+First of all download this project, then run:
 ```bash
 docker-compose run --rm django_app django-admin startproject <name> .
 docker-compose run --rm django_app python manage.py startapp <name>
 docker-compose run --rm django_app chmod -Rv 777 .
 ```
 
-Configure DB.
+## Configure DB
 
-Add this to `settings.py`:
+Add database settings to your `settings.py`:
 ```python
 POSTGRES_USER =     os.environ['POSTGRES_USER']      or 'postgres'
 POSTGRES_PASSWORD = os.environ['POSTGRES_PASSWORD']  or 'postgres'
@@ -32,7 +40,6 @@ DATABASES = {
 ```
 
 Make migrations:
-
 ```bash
 docker-compose run --rm django_app python manage.py makemigrations
 docker-compose run --rm django_app python manage.py migrate
@@ -43,7 +50,11 @@ Create admin user:
 docker-compose run --rm django_app python manage.py createsuperuser
 ```
 
-RUN
+# Using your application
+
+Start your application by running:
+```bash
+docker-compose up --build
 ```
-docker-compose up
-```
+
+Use `CTRL+C` to stop your app.
