@@ -1,0 +1,22 @@
+version: '3.2'
+
+services:
+  django_app:
+    env_file: .env
+    container_name: django_app
+    build: .
+    image: django-docker
+    restart: always
+    volumes:
+      - "./app:/usr/src/app"
+    ports:
+    - "127.0.0.1:8080:8080"
+    depends_on:
+    - django_db
+  django_db:
+    env_file: .env
+    container_name: django_db
+    image: postgres:9.6
+    restart: always
+    ports:
+      - "127.0.0.1:5433:5432" # (!!) alternateport for admin
