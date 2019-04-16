@@ -59,6 +59,8 @@ Start your application by running:
 docker-compose up --build
 ```
 
+See your app in action: [http://localhost:8080](http://localhost:8080)
+
 Use `CTRL+C` to stop your app.
 
 ## Contributing
