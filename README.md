@@ -21,11 +21,11 @@ docker-compose run --rm django_app chmod -Rv 777 .
 
 Add database settings to your `settings.py`:
 ```python
-POSTGRES_USER =     os.environ['POSTGRES_USER']      or 'postgres'
-POSTGRES_PASSWORD = os.environ['POSTGRES_PASSWORD']  or 'postgres'
-POSTGRES_DB =       os.environ['POSTGRES_DB']        or 'postgres'
-POSTGRES_HOST =     os.environ['POSTGRES_HOST']      or 'db'
-POSTGRES_PORT = int(os.environ['POSTGRES_PORT'])     or 5432
+POSTGRES_USER =     os.environ.get('POSTGRES_USER', 'postgres')
+POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD', 'postgres')
+POSTGRES_DB =       os.environ.get('POSTGRES_DB', 'postgres')
+POSTGRES_HOST =     os.environ.get('POSTGRES_HOST', 'db')
+POSTGRES_PORT = int(os.environ.get('POSTGRES_PORT', 5432))
 
 DATABASES = {
     'default': {
