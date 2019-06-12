@@ -12,20 +12,20 @@ You don't need Python and modules to run this project, however it will be needed
 
 First of all download this project, then run:
 ```bash
-docker-compose run --rm django_app django-admin startproject <name> .
+#[ALREADY DONE]# docker-compose run --rm django_app django-admin startproject <name> .
 docker-compose run --rm django_app python manage.py startapp <name>
 docker-compose run --rm django_app chmod -Rv 777 .
 ```
 
 ## Configure DB
 
-Add database settings to your `settings.py`:
+[Already done]: Add database settings to your `settings.py`:
 ```python
-POSTGRES_USER =     os.environ.get('POSTGRES_USER', 'postgres')
+POSTGRES_USER =     os.environ.get('POSTGRES_USER',     'postgres')
 POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD', 'postgres')
-POSTGRES_DB =       os.environ.get('POSTGRES_DB', 'postgres')
-POSTGRES_HOST =     os.environ.get('POSTGRES_HOST', 'db')
-POSTGRES_PORT = int(os.environ.get('POSTGRES_PORT', 5432))
+POSTGRES_DB =       os.environ.get('POSTGRES_DB',       'postgres')
+POSTGRES_HOST =     os.environ.get('POSTGRES_HOST',     'db')
+POSTGRES_PORT = int(os.environ.get('POSTGRES_PORT',     5432))
 
 DATABASES = {
     'default': {
