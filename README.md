@@ -19,7 +19,7 @@ docker-compose run --rm django_app chmod -Rv 777 .
 
 ## Configure DB
 
-[Already done]: Add database settings to your `settings.py`:
+`[Already done]`: Add database settings to your `settings.py`:
 ```python
 POSTGRES_USER =     os.environ.get('POSTGRES_USER',     'postgres')
 POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD', 'postgres')
@@ -62,6 +62,9 @@ docker-compose up --build
 See your app in action: [http://localhost:8080](http://localhost:8080)
 
 Use `CTRL+C` to stop your app.
+
+## Changelog
+* `12.06.2019`: Added holdup script to wait till postgres is ready.
 
 ## Contributing
 

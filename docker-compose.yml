@@ -31,4 +31,4 @@ services:
     image: postgres:9.6
     restart: always
     ports:
-      - "127.0.0.1:5433:5432" # (!!) alternateport for admin
+      - "127.0.0.1:5433:5432"
