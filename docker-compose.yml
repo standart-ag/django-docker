@@ -7,12 +7,24 @@ services:
     build: .
     image: django-docker
     restart: always
+    command: holdup tcp://$POSTGRES_HOST:$POSTGRES_PORT -- python manage.py runserver 0.0.0.0:8080
     volumes:
       - "./app:/usr/src/app"
     ports:
-    - "127.0.0.1:8080:8080"
+      - "127.0.0.1:8080:8080"
     depends_on:
-    - django_db
+      - django_db
+
+  django_migrate:
+    env_file: .env
+    container_name: django_migrate
+    image: django-docker
+    command: holdup tcp://$POSTGRES_HOST:$POSTGRES_PORT -- python manage.py migrate
+    volumes:
+      - "./app:/usr/src/app"
+    depends_on:
+      - django_db
+
   django_db:
     env_file: .env
     container_name: django_db
